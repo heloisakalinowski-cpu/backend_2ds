@@ -1,0 +1,14 @@
+// objetos são estruturas chave-valor
+// Também chamadas "key-value"
+//objetos podem conter: arrays, string,
+//number, objects, function...
+//possuem métodos próprios
+
+const jogador = {
+    nome: "Carlinhos",
+    gols: 300,
+    time: ['Palmeiras', 'Coxa', 'Flamengo', 'Corinthians']
+}
+console.log(jogador.nome)
+console.log(jogador.gols)
+console.log(jogador.time [1])
