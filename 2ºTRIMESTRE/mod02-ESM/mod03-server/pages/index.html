@@ -1,13 +1,225 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage | Obrigado pela visita</title>
+    <style>
+        :root {
+            --bg-dark: #0a0a0c;
+            --card-bg: rgba(20, 20, 25, 0.85);
+            --rock-red: #e63946;
+            --vinyl-gold: #ffb703;
+            --text-light: #f1faee;
+            --text-muted: #a8dadc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            /* Imagem de Fundo de Concerto de Rock em Base64 */
+            background-image: linear-gradient(180deg, rgba(10, 10, 12, 0.65) 0%, #0a0a0c 100%), 
+                              url("data:image/jpeg;base64,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");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        /* Efeito visual de amplificador de guitarra/linhas de áudio ao fundo */
+        body::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(230, 57, 70, 0.03) 2px, transparent 2px),
+                        linear-gradient(90deg, rgba(230, 57, 70, 0.03) 2px, transparent 2px);
+            background-size: 40px 40px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .rock-card {
+            position: relative;
+            z-index: 1;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 3.5rem 2.5rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 420px;
+            text-align: center;
+            border: 3px solid #1f2026;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6),
+                        0 0 30px rgba(236, 57, 70, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .rock-card::after {
+            content: '';
+            position: absolute;
+            top: -3px; left: -3px; right: -3px; bottom: -3px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--rock-red), transparent, var(--vinyl-gold));
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        .rock-card:hover {
+            transform: scale(1.02);
+            border-color: var(--rock-red);
+            box-shadow: 0 25px 50px rgba(230, 57, 70, 0.3);
+        }
+
+        .vinyl-container {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Representação gráfica do Disco de Vinil girando */
+        .vinyl-record {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle, #000 20%, #111 21%, #111 30%, #222 31%, #000 40%, #111 41%, #222 60%, #000 70%);
+            box-shadow: 0 0 15px rgba(0,0,0,0.8);
+            position: absolute;
+            animation: spin 6s linear infinite;
+        }
+
+        .vinyl-cover {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            z-index: 2;
+            border: 2px solid var(--vinyl-gold);
+            /* Imagem Base64 interna da capa da banda */
+            background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkBAMAAACCzIhnAAAAG1BMVEUAAAD///8AAABfX19/f3+fn5+AgIC/v7/f3994B69bAAAAZElEQVRYR73VwQ3AMAgEwSdgAqdop06m8E7unwJvE6Ww8uU2m0S8pIDvK6wVz99iOn9bK6pFApYpCmsihbXQonvCOuGVbAonbAonbAonbAonvCKbIdWdIdUdUdX98fLmim828AavP9gbeQAAAABJRU5ErkJggg==");
+            background-size: cover;
+        }
+
+        h3 {
+            font-size: 2.4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-shadow: 2px 2px 0px rgba(230, 57, 70, 0.5);
+        }
+
+        h3 svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--rock-red);
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        p svg {
+            width: 22px;
+            height: 22px;
+            fill: none;
+            stroke: var(--vinyl-gold);
+        }
+
+        .btn-backstage {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            padding: 1.1rem 2rem;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: #000;
+            border: 2px solid #333;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 0 10px rgba(255,255,255,0.05);
+        }
+
+        .btn-backstage:hover {
+            background: var(--rock-red);
+            border-color: var(--text-light);
+            color: #000;
+            box-shadow: 0 0 20px rgba(230, 57, 70, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .btn-backstage svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 3;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-backstage:hover svg {
+            transform: translateX(6px);
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
-        <h3>Página Inicial</h3>
-        <p>Olá, você está em casa</p>
-        <a href="/sobre">Ir para Sobre</a>
-</body>
-</html>
+
+    <main class="rock-card">
+        <div class="vinyl-container">
+            <div class="vinyl-record"></div>
+            <div class="vinyl-cover"></div>
+        </div>
+        
+        <h3>
+            <!-- Ícone de Guitarra / Flame Nativizada via SVG -->
+            <svg xmlns="http://w3.org" viewBox="0 0 24 24"><path d="M17.56 15.66c0-2.26-1.41-4.19-3.39-4.94.13-.42.22-.87.22-1.34 0-2.48-2.02-4.5-4.5-4.5s-4.5 2.02-4.5 4.5c0 .47.09.92.22 1.34-1.98.75-3.39 2.68-3.39 4.94 0 2.9 2.35 5.25 5.25 5.25h4.5c2.9 0 5.25-2.35 5.25-5.25zm-7.67-9.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5 1.12-2.5 2.5-2.5z"/></svg>
+            Página Inicial
+        </h3>
+        
+        <p>
+            <!-- Ícone de Áudio / Casa Grunge via SVG -->
+            <svg xmlns="http://w3.org" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Olá, você está em casa
+        </p>
+        
+        <!-- Mantida a rota exata solicitada -->
+        <a href="/sobre" class="btn-backstage">
+            Ir para Sobre 
